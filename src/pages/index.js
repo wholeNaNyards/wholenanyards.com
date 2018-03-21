@@ -10,19 +10,26 @@ const IndexPage = ({ data }) => {
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
       <h2>Index</h2>
-      {edges.map(({ node: { frontmatter: post } }) => (
-        <div>
-          <Link to={post.path}>{post.title}</Link>
-          <br />
-        </div>
-      ))}
+      <ul>
+        {edges.map(({ node }) => (
+          <li>
+            <Link key={node.id} to={node.frontmatter.path}>
+              {node.frontmatter.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(limit: 10) {
+    allMarkdownRemark(
+      limit: 10
+      filter: { frontmatter: { published: { eq: true } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           frontmatter {
