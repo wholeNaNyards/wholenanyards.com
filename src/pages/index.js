@@ -1,27 +1,61 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
 
 const IndexPage = ({ data }) => {
   const { allMarkdownRemark: { edges } } = data;
   return (
     <div>
+      <Helmet title="Blog | wholeNaNyards" />
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link>
       <h2>Index</h2>
       <ul>
         {edges.map(({ node }) => (
           <li>
-            <Link key={node.id} to={node.frontmatter.path}>
-              {node.frontmatter.title}
-            </Link>
+            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
           </li>
         ))}
       </ul>
     </div>
   );
 };
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(PropTypes.shape({
+        node: PropTypes.shape({
+          frontmatter: PropTypes.shape({
+            path: PropTypes.string,
+            title: PropTypes.string,
+          }),
+        }),
+      })),
+    }),
+  }),
+};
+
+IndexPage.defaultProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: [
+        {
+          node: {
+            frontmatter: {
+              path: '',
+              title: '',
+            },
+          },
+        },
+      ],
+    },
+  },
+};
+
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -41,5 +75,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-export default IndexPage;
