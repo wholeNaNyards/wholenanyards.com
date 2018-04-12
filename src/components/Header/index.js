@@ -5,35 +5,32 @@ import styled from 'styled-components';
 import logo from '../../images/kylo.jpg';
 
 const HeaderWrapper = styled.div`
-  background: #524763;
-  margin-bottom: 1.45rem;
-  h1 {
-    img {
-      height: 150px;
-    }
-  }
+  margin-bottom: 2rem;
 `;
 
 const HeaderContainer = styled.div`
   margin: 0 auto;
   max-width: 960;
-  padding: 1.45rem 1.0875rem;
+  padding: 0.5rem 1.0875rem;
+`;
+
+const StyledLink = styled(Link)`
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: unset;
+  :hover {
+    color: unset;
+    text-decoration: none;
+  }
 `;
 
 const Header = () => (
   <HeaderWrapper>
     <HeaderContainer>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          <img src={logo} alt="Kyle Ren" />
-        </Link>
-      </h1>
+      <h4 style={{ margin: 0 }}>
+        <StyledLink to="/">wholeNaNyards</StyledLink>
+      </h4>
     </HeaderContainer>
   </HeaderWrapper>
 );

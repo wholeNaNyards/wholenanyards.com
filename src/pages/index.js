@@ -1,24 +1,42 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import { Container, Row, Col } from 'reactstrap';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+import BlogCard from '../components/BlogCard';
+
+const StyledLink = styled(Link)`
+  color: unset;
+  :hover {
+    color: unset;
+    text-decoration: none;
+  }
+`;
 
 const IndexPage = ({ data }) => {
   const { allMarkdownRemark: { edges } } = data;
   return (
     <div>
       <Helmet title="Blog | wholeNaNyards" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h2>Index</h2>
-      <ul>
+      <Container fluid className="main-container">
         {edges.map(({ node }) => (
-          <li>
-            <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
-          </li>
+          <Row>
+            <Col md={{ size: 8, offset: 2 }} xl={{ size: 6, offset: 3 }}>
+              <StyledLink to={node.frontmatter.path}>
+                <BlogCard
+                  key={1}
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}
+                  description={node.frontmatter.description}
+                  imageDescription={node.frontmatter.imageDescription}
+                />
+              </StyledLink>
+            </Col>
+          </Row>
         ))}
-      </ul>
+      </Container>
     </div>
   );
 };
@@ -69,6 +87,9 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
+            date
+            description
+            imageDescription
           }
         }
       }
