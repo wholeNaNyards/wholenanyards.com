@@ -1,46 +1,49 @@
 import React from 'react';
-import { Media } from 'reactstrap';
 import styled from 'styled-components';
-
-import logo from '../../images/kylo.jpg';
-
-const StyledMedia = styled(Media)`
-  background: #fff;
-  border-radius: 3px;
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1), -2px 0 5px 0 rgba(0, 0, 0, 0.1);
-  margin-bottom: 24px;
-  padding: 2rem 1.75rem;
-  :hover {
-    box-shadow: 4px 4px 7px 0 rgba(0, 0, 0, 0.1), -4px 0 7px 0 rgba(0, 0, 0, 0.1);
-  }
-`;
-
-const StyledMediaHeading = styled(Media)`
-  font-size: 1.1em;
-`;
+import Link from 'gatsby-link';
 
 const DateText = styled.p`
   color: rgba(0, 0, 0, 0.45);
 `;
 
+const Card = styled.div`
+  .mdl-card {
+    width: 512px;
+  }
+  > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('http://lorempixel.com/128/128/city') center / cover;
+  }
+  > .mdl-card__menu {
+    color: #fff;
+  }
+`;
+
 const BlogCard = ({
-  title, date, description, imageDescription,
+  title, date, description, imageDescription, path,
 }) => (
-  <StyledMedia>
-    <Media
-      object
-      src="http://lorempixel.com/128/128/city"
-      alt={imageDescription}
-      className="mr-3"
-    />
-    <Media body>
-      <StyledMediaHeading heading className="mb-3">
-        {title}
-      </StyledMediaHeading>
+  <Card className="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div className="mdl-card__title">
+      <h2 className="mdl-card__title-text">{title}</h2>
+    </div>
+    <div className="mdl-card__supporting-text">
       {description}
-      <DateText className="mt-3 mb-0">{date}</DateText>
-    </Media>
-  </StyledMedia>
+      <br />
+      <br />
+      <DateText>{date}</DateText>
+    </div>
+    <div className="mdl-card__actions mdl-card--border">
+      <Link to={path} className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        Read More
+      </Link>
+    </div>
+    <div className="mdl-card__menu">
+      <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i className="material-icons">share</i>
+      </button>
+    </div>
+  </Card>
 );
 
 export default BlogCard;
