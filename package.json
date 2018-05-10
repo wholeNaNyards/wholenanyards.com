@@ -5,11 +5,13 @@
   "author": "wholeNaNyards",
   "dependencies": {
     "gatsby": "^1.9.232",
+    "gatsby-cli": "^1.1.51",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-react-helmet": "^2.0.7",
     "gatsby-plugin-styled-components": "^2.0.9",
     "gatsby-source-filesystem": "^1.5.27",
     "gatsby-transformer-remark": "^1.7.37",
+    "material-components-web": "^0.34.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",

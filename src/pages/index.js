@@ -17,8 +17,6 @@ const IndexPage = ({ data }) => {
       <Helmet title="Blog | wholeNaNyards" />
       <StyledPageHeading className="d-md-none">Blog</StyledPageHeading>
       {edges.map(({ node }) => (
-        // <Row>
-        // <Col md={{ size: 8, offset: 2 }} xl={{ size: 6, offset: 3 }}>
         <div>
           <BlogCard
             key={1}
