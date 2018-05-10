@@ -3,6 +3,11 @@ import styled from 'styled-components';
 
 const StyledAnchor = styled.a`
   padding: 1rem 0.4rem;
+  color: #f2f0fd;
+
+  :hover {
+    color: #afa6f2;
+  }
 `;
 
 const StyledIcon = styled.i`

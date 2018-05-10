@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import IconLink from '../IconLink';
 
 const NavBar = styled.nav`
-  background-color: #333;
-  color: white;
+  background-color: #6c5ce7;
+  color: #f2f0fd;
 
   @media (max-width: 599px) {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1rem;
   }
 
   @media (min-width: 600px) {
@@ -26,13 +26,17 @@ const NavBar = styled.nav`
 `;
 
 const Brand = styled(Link)`
-  color: white;
+  color: #f2f0fd;
   float: left;
   line-height: 1.2rem;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 100;
-  letter-spacing: -1px;
+  font-family: 'Raleway', sans-serif;
+
+  :hover {
+    color: #c9c4f6;
+  }
 `;
 
 const IconContainer = styled.ul`
@@ -44,10 +48,6 @@ const IconContainer = styled.ul`
 
   li {
     display: inline-block;
-  }
-
-  li a {
-    color: white;
   }
 `;
 
