@@ -14,24 +14,30 @@ const StyledPageHeading = styled(Link)`
   color: #796be9;
 `;
 
+const Cards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
+
 const IndexPage = ({ data }) => {
   const { allMarkdownRemark: { edges } } = data;
   return (
     <div>
       <Helmet title="Blog" />
       <StyledPageHeading to="/">Blog</StyledPageHeading>
-      {edges.map(({ node }) => (
-        <div>
+      <Cards>
+        {edges.map(({ node }) => (
           <BlogCard
-            key={1}
+            key={node.frontmatter.title}
             title={node.frontmatter.title}
             date={node.frontmatter.date}
             description={node.frontmatter.description}
             imageDescription={node.frontmatter.imageDescription}
             path={node.frontmatter.path}
           />
-        </div>
-      ))}
+        ))}
+      </Cards>
     </div>
   );
 };
