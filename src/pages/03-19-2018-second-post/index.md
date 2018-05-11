@@ -3,7 +3,7 @@ path: '/second-post'
 title: 'Second Blog Post'
 published: true
 date: 'March 19th 2018'
-description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.'
+description: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, an'
 imageDescription: 'Description of second blog post image'
 ---
 

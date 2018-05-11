@@ -11,7 +11,6 @@
     "gatsby-plugin-styled-components": "^2.0.9",
     "gatsby-source-filesystem": "^1.5.27",
     "gatsby-transformer-remark": "^1.7.37",
-    "material-components-web": "^0.34.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",

@@ -4,18 +4,20 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-const StyledPageHeading = styled.h3`
-  margin-bottom: 0.75rem;
+const StyledPageHeading = styled(Link)`
+  margin-bottom: 1em;
+  font-size: 2.5em;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1em;
+  color: #796be9;
 `;
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
   return (
     <div>
-      <Helmet title={`${post.frontmatter.title} | wholeNaNyards`} />
-      <StyledPageHeading className="d-md-none">
-        <Link to="/">Blog</Link>
-      </StyledPageHeading>
+      <Helmet title={post.frontmatter.title} />
+      <StyledPageHeading to="/">Blog</StyledPageHeading>
       <h1>{post.frontmatter.title}</h1>
       <h4>{post.frontmatter.date}</h4>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />

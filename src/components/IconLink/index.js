@@ -2,16 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledAnchor = styled.a`
-  padding: 1rem 0.4rem;
+  padding-left: 1em;
   color: #f2f0fd;
-
-  :hover {
-    color: #afa6f2;
-  }
 `;
 
 const StyledIcon = styled.i`
-  font-size: 1.2rem;
+  font-size: 1.375em;
   vertical-align: middle;
 `;
 

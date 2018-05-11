@@ -7,35 +7,24 @@ import IconLink from '../IconLink';
 const NavBar = styled.nav`
   background-color: #6c5ce7;
   color: #f2f0fd;
-
-  @media (max-width: 599px) {
-    padding: 0.75rem 1rem;
-  }
-
-  @media (min-width: 600px) {
-    padding: 0.75rem 3rem;
-  }
+  padding: 0.75em 1.25em;
 
   @media (min-width: 900px) {
-    padding: 0.75rem 6rem;
+    padding: 0.75em 6em;
   }
-
   @media (min-width: 1200px) {
-    padding: 0.75rem 12rem;
+    padding: 0.75em 12em;
   }
 `;
 
 const Brand = styled(Link)`
   color: #f2f0fd;
-  float: left;
-  line-height: 1.2rem;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 100;
+  line-height: 1em;
+  font-size: 1.375em;
   font-family: 'Raleway', sans-serif;
 
-  :hover {
-    color: #c9c4f6;
+  span {
+    opacity: 0.6;
   }
 `;
 
@@ -53,7 +42,9 @@ const IconContainer = styled.ul`
 
 const Header = () => (
   <NavBar>
-    <Brand to="/">wholeNaNyards</Brand>
+    <Brand to="/">
+      whole<span>NaN</span>yards
+    </Brand>
     <IconContainer>
       <li>
         <IconLink iconClass="fab fa-twitch" to="https://www.twitch.tv/wholeNaNyards" />

@@ -6,16 +6,20 @@ import styled from 'styled-components';
 
 import BlogCard from '../components/BlogCard';
 
-const StyledPageHeading = styled.h3`
-  margin-bottom: 0.75rem;
+const StyledPageHeading = styled(Link)`
+  margin-bottom: 1em;
+  font-size: 2.5em;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1em;
+  color: #796be9;
 `;
 
 const IndexPage = ({ data }) => {
   const { allMarkdownRemark: { edges } } = data;
   return (
     <div>
-      <Helmet title="Blog | wholeNaNyards" />
-      <StyledPageHeading className="d-md-none">Blog</StyledPageHeading>
+      <Helmet title="Blog" />
+      <StyledPageHeading to="/">Blog</StyledPageHeading>
       {edges.map(({ node }) => (
         <div>
           <BlogCard
