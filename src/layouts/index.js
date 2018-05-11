@@ -48,6 +48,9 @@ const globalStyles = `
 const MainContainer = styled.div`
   margin: 1em 1.25em;
 
+  @media (min-width: 600px) {
+    margin: 2em 2em;
+  }
   @media (min-width: 900px) {
     margin: 2em 7em;
   }
