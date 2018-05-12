@@ -5,11 +5,10 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 const StyledPageHeading = styled(Link)`
-  margin-bottom: 1em;
   font-size: 2.5em;
   font-family: 'Raleway', sans-serif;
   line-height: 1em;
-  color: #796be9;
+  color: #a197f0;
 `;
 
 const BlogPost = ({ data }) => {

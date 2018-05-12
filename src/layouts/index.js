@@ -10,6 +10,7 @@ import Header from '../components/Header';
 // Darker: #5f4de5
 // Light Grey: #f2f0fd
 // Dark Grey: #04020f
+// Complement: #e7a95c
 
 const globalStyles = `
   html { font-size: 1em; }
@@ -17,7 +18,8 @@ const globalStyles = `
   body {
     background-color: #f2f0fd;
     color: #212529;
-    font-family: 'Lora', serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     line-height: 1.3em;
     margin: 0;
   }
@@ -64,7 +66,10 @@ const TemplateWrapper = ({ children }) => (
     <Helmet titleTemplate="%s | wholeNaNyards" defaultTitle="wholeNaNyards">
       <html lang="en" className="fontawesome-i2svg-pending" />
       <meta charSet="utf-8" />
-      <link href="https://fonts.googleapis.com/css?family=Lora|Raleway:200" rel="stylesheet" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500|Raleway:200"
+        rel="stylesheet"
+      />
       <script
         defer
         src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"

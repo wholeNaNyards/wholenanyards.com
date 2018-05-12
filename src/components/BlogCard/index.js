@@ -3,30 +3,99 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 const Card = styled.article`
-  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   margin-bottom: 2em;
+  transition: all 0.3s ease-out;
 
-  img {
-    display: block;
-    border: 0;
-    width: 100%;
-    height: auto;
+  :hover {
+    box-shadow: 0 6px 20px #afafaf;
+
+    a {
+      opacity: 0.6;
+    }
   }
 
   @media (min-width: 600px) {
     flex: 0 1 calc(50% - 1em);
+    margin-bottom: 0;
   }
+
   @media (min-width: 900px) {
+    margin-bottom: 1em;
+  }
+  @media (min-width: 1400px) {
     flex: 0 1 calc(33% - 1em);
   }
 `;
 
-const Heading = styled.div`
-  padding: 10px 30px;
+const Title = styled.div`
+  color: #796be9;
+  font-size: 1.35em;
+  line-height: 120%;
+  margin: 1rem 0 0.15rem 0;
+  padding: 0 1.25rem;
 `;
 
-const Date = styled.h3`
-  color: rgba(0, 0, 0, 0.6);
+const Date = styled.div`
+  font-size: 0.9em;
+  opacity: 0.45;
+  margin: 0 0 0.5rem 0;
+  padding: 0 1.25rem;
+  letter-spacing: 0.15px;
+
+  @media (min-width: 600px) {
+    font-size: 0.8em;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 0.7em;
+  }
+`;
+
+const Image = styled.img`
+  display: block;
+  border: 0;
+  width: 100%;
+  height: auto;
+`;
+
+const Content = styled.div`
+  margin: 0.5rem 0;
+  padding: 0 1.25rem;
+  font-size: 0.9em;
+  opacity: 0.58;
+  line-height: 150%;
+
+  @media (min-width: 900px) {
+    font-size: 0.85em;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 0.75em;
+  }
+`;
+
+const Actions = styled.div`
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+const Action = styled.a`
+  font-size: 0.85em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #5f4de5;
+  letter-spacing: 0.75px;
+
+  @media (min-width: 900px) {
+    font-size: 0.8em;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 0.75em;
+  }
 `;
 
 const BlogCard = ({
@@ -34,21 +103,16 @@ const BlogCard = ({
 }) => (
   <Card>
     <Link to={path}>
-      <Heading>
-        <h2 className="header-text">{title}</h2>
-        <Date>{date}</Date>
-      </Heading>
-      <picture className="thumbnail">
-        <img
-          src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-01.jpg"
-          alt={imageDescription}
-        />
-      </picture>
-      <div className="card-content">
-        <p>{description}</p>
-        <br />
-        Read More!
-      </div>
+      <Title>{title}</Title>
+      <Date>By wholeNaNyards / {date}</Date>
+      <Image
+        src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-01.jpg"
+        alt={imageDescription}
+      />
+      <Content>{description}</Content>
+      <Actions>
+        <Action>Read More</Action>
+      </Actions>
     </Link>
   </Card>
 );

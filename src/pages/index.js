@@ -7,17 +7,18 @@ import styled from 'styled-components';
 import BlogCard from '../components/BlogCard';
 
 const StyledPageHeading = styled(Link)`
-  margin-bottom: 1em;
   font-size: 2.5em;
   font-family: 'Raleway', sans-serif;
   line-height: 1em;
-  color: #796be9;
+  color: #a197f0;
 `;
 
 const Cards = styled.div`
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: 1em;
 `;
 
 const IndexPage = ({ data }) => {
