@@ -67,7 +67,7 @@ const TemplateWrapper = ({ children }) => (
       <html lang="en" className="fontawesome-i2svg-pending" />
       <meta charSet="utf-8" />
       <link
-        href="https://fonts.googleapis.com/css?family=Roboto:400,500|Raleway:200"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500|Spectral|Raleway:200"
         rel="stylesheet"
       />
       <script

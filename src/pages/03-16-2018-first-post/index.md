@@ -7,4 +7,6 @@ description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei
 imageDescription: 'Description of first blog post image'
 ---
 
-Hello! This is our first blog post!
+Hello! This is our first blog post! It has some text in it that should help to make it a lot longer. This is hopefully enough text but who knows.
+
+Do line breaks transfer properly? Let's find out.

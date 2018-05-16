@@ -1,17 +1,10 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import BlogCard from '../components/BlogCard';
-
-const StyledPageHeading = styled(Link)`
-  font-size: 2.5em;
-  font-family: 'Raleway', sans-serif;
-  line-height: 1em;
-  color: #a197f0;
-`;
+import PageHeading from '../components/PageHeading';
 
 const Cards = styled.div`
   align-items: flex-start;
@@ -26,7 +19,7 @@ const IndexPage = ({ data }) => {
   return (
     <div>
       <Helmet title="Blog" />
-      <StyledPageHeading to="/">Blog</StyledPageHeading>
+      <PageHeading to="/">Blog</PageHeading>
       <Cards>
         {edges.map(({ node }) => (
           <BlogCard
