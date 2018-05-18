@@ -32,15 +32,16 @@ const Card = styled.article`
 
 const Title = styled.div`
   color: #796be9;
-  font-size: 1.35em;
   line-height: 120%;
+  letter-spacing: -0.031em;
+  font-size: 1.5em;
   margin: 1rem 0 0.15rem 0;
   padding: 0 1.25rem;
 `;
 
 const Date = styled.div`
   font-size: 0.9em;
-  opacity: 0.45;
+  color: #a9a9a9;
   margin: 0 0 0.5rem 0;
   padding: 0 1.25rem;
   letter-spacing: 0.15px;
@@ -62,18 +63,18 @@ const Image = styled.img`
 `;
 
 const Content = styled.div`
+  color: #7f7f7f;
   margin: 0.5rem 0;
   padding: 0 1.25rem;
-  font-size: 0.9em;
-  opacity: 0.58;
   line-height: 150%;
+  font-family: 'Spectral', serif;
 
   @media (min-width: 900px) {
-    font-size: 0.85em;
+    font-size: 0.95em;
   }
 
   @media (min-width: 1200px) {
-    font-size: 0.75em;
+    font-size: 0.85em;
   }
 `;
 

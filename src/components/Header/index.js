@@ -21,10 +21,9 @@ const Brand = styled(Link)`
   color: #f2f0fd;
   line-height: 1em;
   font-size: 1.375em;
-  font-family: 'Raleway', sans-serif;
 
   span {
-    opacity: 0.6;
+    color: #b9b2f4;
   }
 `;
 

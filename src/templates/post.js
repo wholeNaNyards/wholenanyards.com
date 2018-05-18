@@ -25,15 +25,18 @@ const PostContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 1.65em;
-  line-height: 1.2em;
-  margin: 0.5em 0;
+  color: #2a2a2a;
+  line-height: 120%;
+  letter-spacing: -0.031em;
+  margin: 0.25em 0 0.5em 0;
+  font-size: 1.7em;
+  font-weight: 200;
 `;
 
 const Date = styled.h4`
+  color: #a9a9a9;
   font-size: 0.9em;
-  font-weight: 400;
-  opacity: 0.45;
+  font-weight: 200;
   margin: 0;
   letter-spacing: 1.5px;
 
@@ -56,6 +59,7 @@ const Image = styled.img`
 const Content = styled.div`
   font-size: 1.0625em;
   font-family: 'Spectral', serif;
+  color: #555;
 
   @media (min-width: 900px) {
     font-size: 1.02em;
