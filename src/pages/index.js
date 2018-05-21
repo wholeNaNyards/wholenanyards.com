@@ -7,7 +7,6 @@ import BlogCard from '../components/BlogCard';
 import PageHeading from '../components/PageHeading';
 
 const Cards = styled.div`
-  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

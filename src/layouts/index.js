@@ -33,10 +33,6 @@ const globalStyles = `
       text-decoration: none;
   }
 
-  a:hover {
-    opacity: 0.6;
-  }
-
   @media (min-width: 600px) {
     html { font-size: 1.0625em; }
   }

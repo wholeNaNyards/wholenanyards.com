@@ -4,6 +4,10 @@ import styled from 'styled-components';
 const StyledAnchor = styled.a`
   padding-left: 1em;
   color: #f2f0fd;
+
+  :hover {
+    opacity: 0.6;
+  }
 `;
 
 const StyledIcon = styled.i`
