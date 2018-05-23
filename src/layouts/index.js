@@ -29,7 +29,6 @@ const globalStyles = `
   }
 
   a {
-      color: inherit;
       text-decoration: none;
   }
 
@@ -42,22 +41,19 @@ const globalStyles = `
   @media (min-width: 1200px) {
     html { font-size: 1.1875em; }
   }
-  @media (min-width: 1800px) {
-    html { font-size: 1.25em; }
-  }
 `;
 
 const MainContainer = styled.div`
-  margin: 1em 1.25em;
+  margin: 0 1.25em;
 
   @media (min-width: 600px) {
-    margin: 2em 2em;
+    margin: 0 2em;
   }
   @media (min-width: 900px) {
-    margin: 2em 7em;
+    margin: 0 7em;
   }
   @media (min-width: 1200px) {
-    margin: 2em 13em;
+    margin: 0 13em;
   }
 `;
 
@@ -66,7 +62,7 @@ const TemplateWrapper = ({ children }) => (
     <Helmet titleTemplate="%s | wholeNaNyards" defaultTitle="wholeNaNyards">
       <html lang="en" className="fontawesome-i2svg-pending" />
       <meta charSet="utf-8" />
-      <link href="https://fonts.googleapis.com/css?family=Spectral|Raleway:200" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Raleway:200,400" rel="stylesheet" />
       <script
         defer
         src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"

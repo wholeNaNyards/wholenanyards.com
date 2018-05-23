@@ -21,6 +21,7 @@ const Brand = styled(Link)`
   color: #f2f0fd;
   line-height: 1em;
   font-size: 1.375em;
+  font-weight: 200;
 
   :hover {
     opacity: 0.6;

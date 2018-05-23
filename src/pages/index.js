@@ -10,7 +10,6 @@ const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 1em;
 `;
 
 const IndexPage = ({ data }) => {
