@@ -8,9 +8,10 @@ const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 const Card = styled.article`
   background-color: #fff;
+  border-bottom: 1px solid #dfdfdf;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1em;
+  margin-bottom: 1.25em;
   transition: all 0.3s ease-out;
   flex: 0 1 100%;
   display: flex;
@@ -25,14 +26,14 @@ const Card = styled.article`
 
   @media (min-width: 600px) {
     flex: 0 1 calc(50% - 1em);
-    margin-bottom: 1.25em;
+    margin-bottom: 1.41em;
   }
 
   @media (min-width: 900px) {
-    margin-bottom: 1.5em;
+    margin-bottom: 1.3em;
   }
   @media (min-width: 1200px) {
-    margin-bottom: 1.75em;
+    margin-bottom: 1.25em;
   }
 
   @media (min-width: 1600px) {
