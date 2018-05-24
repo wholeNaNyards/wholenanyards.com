@@ -146,16 +146,13 @@ const Action = styled.div`
 `;
 
 const BlogCard = ({
-  title, date, description, imageDescription, path,
+  title, date, description, image, imageDescription, path,
 }) => (
   <Card>
     <Container to={path}>
       <Title text={title} maxLine="2" />
       <Date>{date}</Date>
-      <Image
-        src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-01.jpg"
-        alt={imageDescription}
-      />
+      <Image src={image} alt={imageDescription} />
       <Content text={description} maxLine="3" />
       <Actions>
         <Action className="action">Read More</Action>

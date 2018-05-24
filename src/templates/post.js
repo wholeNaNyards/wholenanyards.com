@@ -21,6 +21,13 @@ const PostContainer = styled.div`
   @media (min-width: 1200px) {
     padding: 2em 9em;
   }
+
+  img {
+    display: block;
+    height: auto;
+    margin-bottom: 1em;
+    width: 100%;
+  }
 `;
 
 const Title = styled.h1`
@@ -64,13 +71,6 @@ const Date = styled.h4`
   }
 `;
 
-const Image = styled.img`
-  display: block;
-  height: auto;
-  margin-bottom: 1em;
-  width: 100%;
-`;
-
 const Content = styled.div`
   color: #7f7f7f;
   line-height: 1.7;
@@ -97,10 +97,7 @@ const BlogPost = ({ data }) => {
       <PostContainer>
         <Title>{post.frontmatter.title}</Title>
         <Date>{post.frontmatter.date}</Date>
-        <Image
-          src="http://www.abbeyjfitzgerald.com/wp-content/uploads/2017/02/image-example-01.jpg"
-          // alt={imageDescription}
-        />
+        <img src={post.frontmatter.image} alt={post.frontmatter.imageDescription} />
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </PostContainer>
     </div>
@@ -140,6 +137,8 @@ export const postQuery = graphql`
       frontmatter {
         title
         date
+        image
+        imageDescription
       }
     }
   }

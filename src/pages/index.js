@@ -25,6 +25,7 @@ const IndexPage = ({ data }) => {
             title={node.frontmatter.title}
             date={node.frontmatter.date}
             description={node.frontmatter.description}
+            image={node.frontmatter.image}
             imageDescription={node.frontmatter.imageDescription}
             path={node.frontmatter.path}
           />
@@ -42,6 +43,7 @@ IndexPage.propTypes = {
           frontmatter: PropTypes.shape({
             path: PropTypes.string,
             title: PropTypes.string,
+            image: PropTypes.string,
           }),
         }),
       })),
@@ -82,6 +84,7 @@ export const pageQuery = graphql`
             path
             date
             description
+            image
             imageDescription
           }
         }
