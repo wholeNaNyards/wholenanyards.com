@@ -9,7 +9,7 @@ const PostContainer = styled.div`
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid #dfdfdf;
-
+  margin-bottom: 2.5em;
   padding: 1em;
 
   @media (min-width: 600px) {

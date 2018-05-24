@@ -15,12 +15,17 @@ const Card = styled.article`
   transition: all 0.3s ease-out;
   flex: 0 1 100%;
   display: flex;
+  overflow: hidden;
 
   :hover {
     box-shadow: 0 6px 20px #afafaf;
 
     .action {
       opacity: 0.6;
+    }
+
+    .image {
+      transform: scale(1.05);
     }
   }
 
@@ -86,11 +91,13 @@ const Date = styled.div`
   }
 `;
 
-const Image = styled.img`
-  display: block;
-  border: 0;
+const Image = styled.div`
   width: 100%;
-  height: auto;
+  height: 11em;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-out;
 `;
 
 const Content = styled(ResponsiveEllipsis)`
@@ -152,7 +159,7 @@ const BlogCard = ({
     <Container to={path}>
       <Title text={title} maxLine="2" />
       <Date>{date}</Date>
-      <Image src={image} alt={imageDescription} />
+      <Image className="image" style={{ backgroundImage: `url(${image})` }} />
       <Content text={description} maxLine="3" />
       <Actions>
         <Action className="action">Read More</Action>

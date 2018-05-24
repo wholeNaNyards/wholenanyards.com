@@ -26,7 +26,6 @@ const IndexPage = ({ data }) => {
             date={node.frontmatter.date}
             description={node.frontmatter.description}
             image={node.frontmatter.image}
-            imageDescription={node.frontmatter.imageDescription}
             path={node.frontmatter.path}
           />
         ))}
