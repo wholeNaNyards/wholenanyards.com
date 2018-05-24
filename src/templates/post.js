@@ -28,6 +28,30 @@ const PostContainer = styled.div`
     margin-bottom: 1em;
     width: 100%;
   }
+
+  code {
+    border: none !important;
+    font-size: 0.81em;
+  }
+
+  .gatsby-highlight {
+    background-color: #2a2a2a;
+    border-radius: 0.3em;
+    margin: 0.5em 0;
+    padding: 1em;
+    overflow: auto;
+  }
+
+  .gatsby-highlight pre[class*='language-'] {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    overflow: initial;
+    float: left;
+    min-width: 100%;
+  }
 `;
 
 const Title = styled.h1`

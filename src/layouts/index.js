@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+// import 'prismjs/themes/prism-solarizedlight.css';
+import 'prismjs/themes/prism-dark.css';
 
 import Header from '../components/Header';
 
