@@ -19,16 +19,17 @@ const IndexPage = ({ data }) => {
       <Helmet title="Blog" />
       <PageHeading to="/">Blog</PageHeading>
       <Cards>
-        {edges.map(({ node }) => (
-          <BlogCard
-            key={node.frontmatter.title}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date}
-            description={node.frontmatter.description}
-            image={node.frontmatter.image}
-            path={node.frontmatter.path}
-          />
-        ))}
+        {edges.map(({ node }) =>
+            node.frontmatter.published && (
+              <BlogCard
+                key={node.frontmatter.title}
+                title={node.frontmatter.title}
+                date={node.frontmatter.date}
+                description={node.frontmatter.description}
+                image={node.frontmatter.image}
+                path={node.frontmatter.path}
+              />
+            ))}
       </Cards>
     </div>
   );
@@ -85,6 +86,7 @@ export const pageQuery = graphql`
             description
             image
             imageDescription
+            published
           }
         }
       }

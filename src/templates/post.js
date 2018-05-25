@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Redirect } from 'react-router';
 
 import PageHeading from '../components/PageHeading';
 
@@ -193,7 +194,9 @@ const Content = styled.div`
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
-  return (
+  return !post.frontmatter.published ? (
+    <Redirect to="/404" />
+  ) : (
     <div>
       <Helmet title={post.frontmatter.title} />
       <PageHeading to="/">Blog</PageHeading>
@@ -242,6 +245,7 @@ export const postQuery = graphql`
         date
         image
         imageDescription
+        published
       }
     }
   }
