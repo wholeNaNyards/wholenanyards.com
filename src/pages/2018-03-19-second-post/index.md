@@ -2,7 +2,7 @@
 path: '/second-post'
 title: 'Second Blog Post'
 published: true
-date: 'March 19th 2018'
+date: 2018-03-19
 description: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, an'
 image: 'https://octodex.github.com/images/stormtroopocat.jpg'
 imageDescription: 'Description of second blog post image'

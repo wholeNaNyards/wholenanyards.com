@@ -242,7 +242,7 @@ export const postQuery = graphql`
       html
       frontmatter {
         title
-        date
+        date: date(formatString: "MMMM DD YYYY")
         image
         imageDescription
         published
