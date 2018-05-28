@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
+import PropTypes from 'prop-types';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -153,7 +154,7 @@ const Action = styled.div`
 `;
 
 const BlogCard = ({
-  title, date, description, image, imageDescription, path,
+  title, date, description, image, path,
 }) => (
   <Card>
     <Container to={path}>
@@ -167,5 +168,21 @@ const BlogCard = ({
     </Container>
   </Card>
 );
+
+BlogCard.propTypes = {
+  date: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  path: PropTypes.string,
+};
+
+BlogCard.defaultProps = {
+  date: '',
+  title: '',
+  description: '',
+  image: '',
+  path: '',
+};
 
 export default BlogCard;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import PropTypes from 'prop-types';
 
 const StyledAnchor = styled(OutboundLink)`
   padding-left: 1em;
@@ -21,5 +22,15 @@ const IconLink = ({ iconClass, to }) => (
     <StyledIcon className={`${iconClass}`} />
   </StyledAnchor>
 );
+
+IconLink.propTypes = {
+  iconClass: PropTypes.string,
+  to: PropTypes.string,
+};
+
+IconLink.defaultProps = {
+  iconClass: '',
+  to: '',
+};
 
 export default IconLink;
