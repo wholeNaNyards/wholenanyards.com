@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-const StyledAnchor = styled.a`
+const StyledAnchor = styled(OutboundLink)`
   padding-left: 1em;
   color: #f2f0fd;
 

@@ -3,7 +3,30 @@ module.exports = {
     title: 'wholeNaNyards',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'wholeNaNyards',
+        short_name: 'wholeNaNyards',
+        start_url: '/',
+        background_color: '#f2f0fd',
+        theme_color: '#6c5ce7',
+        display: 'standalone',
+        icon: 'src/images/kylo.jpg',
+      },
+    },
+    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-119974867-1',
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        exclude: ['/preview/**', '/do-not-track/me/too/'],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

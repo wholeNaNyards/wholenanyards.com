@@ -63,7 +63,7 @@ const TemplateWrapper = ({ children }) => (
     <Helmet titleTemplate="%s | wholeNaNyards" defaultTitle="wholeNaNyards">
       <html lang="en" className="fontawesome-i2svg-pending" />
       <meta charSet="utf-8" />
-      <link href="https://fonts.googleapis.com/css?family=Raleway:200,400" rel="stylesheet" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,400" />
       <script
         defer
         src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"
