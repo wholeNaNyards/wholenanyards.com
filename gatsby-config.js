@@ -15,6 +15,24 @@ module.exports = {
         icon: 'src/images/kylo.jpg',
       },
     },
+    {
+      resolve: 'gatsby-plugin-favicon',
+      options: {
+        logo: './src/favicon.png',
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: true,
+          yandex: false,
+          windows: true,
+        },
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {
