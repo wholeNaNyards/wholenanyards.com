@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -23,10 +24,6 @@ const Card = styled.article`
 
     .action {
       opacity: 0.6;
-    }
-
-    .image {
-      transform: scale(1.05);
     }
   }
 
@@ -92,13 +89,10 @@ const Date = styled.div`
   }
 `;
 
-const Image = styled.div`
-  width: 100%;
+const ImageContainer = styled.div`
+  overflow: hidden;
   height: 11em;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 0.3s ease-out;
+  position: relative;
 `;
 
 const Content = styled(ResponsiveEllipsis)`
@@ -160,7 +154,17 @@ const BlogCard = ({
     <Container to={path}>
       <Title text={title} maxLine="2" />
       <Date>{date}</Date>
-      <Image className="image" style={{ backgroundImage: `url(${image})` }} />
+      <ImageContainer>
+        <Img
+          sizes={image}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+          }}
+        />
+      </ImageContainer>
       <Content text={description} maxLine="3" />
       <Actions>
         <Action className="action">Read More</Action>
@@ -173,7 +177,6 @@ BlogCard.propTypes = {
   date: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.string,
   path: PropTypes.string,
 };
 
@@ -181,7 +184,6 @@ BlogCard.defaultProps = {
   date: '',
   title: '',
   description: '',
-  image: '',
   path: '',
 };
 

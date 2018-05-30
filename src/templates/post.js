@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Redirect } from 'react-router';
+import Img from 'gatsby-image';
 
 import PageHeading from '../components/PageHeading';
 
@@ -28,6 +29,14 @@ const PostContainer = styled.div`
     height: auto;
     margin-bottom: 1em;
     width: 100%;
+  }
+
+  a {
+    color: #2100ef;
+
+    :hover {
+      color: #5239fd;
+    }
   }
 `;
 
@@ -203,7 +212,10 @@ const BlogPost = ({ data }) => {
       <PostContainer>
         <Title>{post.frontmatter.title}</Title>
         <Date>{post.frontmatter.date}</Date>
-        <img src={post.frontmatter.image} alt={post.frontmatter.imageDescription} />
+        <Img
+          sizes={post.frontmatter.image.childImageSharp.sizes}
+          alt={post.frontmatter.imageDescription}
+        />
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </PostContainer>
     </div>
@@ -243,7 +255,16 @@ export const postQuery = graphql`
       frontmatter {
         title
         date: date(formatString: "MMMM DD YYYY")
-        image
+        image {
+          childImageSharp {
+            resize(width: 1500, height: 1500) {
+              src
+            }
+            sizes(maxWidth: 650) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
         imageDescription
         published
       }

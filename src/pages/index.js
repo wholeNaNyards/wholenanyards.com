@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
                 title={node.frontmatter.title}
                 date={node.frontmatter.date}
                 description={node.frontmatter.description}
-                image={node.frontmatter.image}
+                image={node.frontmatter.image.childImageSharp.sizes}
                 path={node.frontmatter.path}
               />
             ))}
@@ -84,7 +84,16 @@ export const pageQuery = graphql`
             path
             date(formatString: "MMMM DD YYYY")
             description
-            image
+            image {
+              childImageSharp {
+                resize(width: 1500, height: 1500) {
+                  src
+                }
+                sizes(maxWidth: 650) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
             imageDescription
             published
           }

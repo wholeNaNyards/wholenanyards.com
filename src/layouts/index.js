@@ -30,7 +30,7 @@ const globalStyles = `
   }
 
   a {
-      text-decoration: none;
+    text-decoration: none;
   }
 
   @media (min-width: 600px) {
