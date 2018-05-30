@@ -25,6 +25,10 @@ const Card = styled.article`
     .action {
       opacity: 0.6;
     }
+
+    img {
+      transform: scale(1.05);
+    }
   }
 
   @media (min-width: 600px) {
@@ -162,6 +166,10 @@ const BlogCard = ({
             left: 0,
             top: 0,
             width: '100%',
+          }}
+          imgStyle={{
+            WebkitTransition: 'all 0.3s ease-out',
+            msTransition: 'all 0.3s ease-out',
           }}
         />
       </ImageContainer>
