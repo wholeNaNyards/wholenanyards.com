@@ -49,7 +49,7 @@ module.exports = {
         background_color: '#f2f0fd',
         theme_color: '#6c5ce7',
         display: 'standalone',
-        icon: 'src/images/kylo.jpg',
+        icon: 'src/images/icon.png',
       },
     },
     {
