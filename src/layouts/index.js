@@ -42,6 +42,13 @@ const globalStyles = `
   @media (min-width: 1200px) {
     html { font-size: 1.1875em; }
   }
+
+  .logoImageWrapper {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;    
+  }
 `;
 
 const MainContainer = styled.div`
@@ -58,7 +65,7 @@ const MainContainer = styled.div`
   }
 `;
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, data }) => (
   <div>
     <Helmet titleTemplate="%s | wholeNaNyards" defaultTitle="wholeNaNyards">
       <html lang="en" className="fontawesome-i2svg-pending" />
@@ -72,7 +79,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <style type="text/css">{globalStyles}</style>
     </Helmet>
-    <Header />
+    <Header image={data.headerImage.resolutions} />
     <MainContainer>{children()}</MainContainer>
   </div>
 );
@@ -86,3 +93,13 @@ TemplateWrapper.defaultProps = {
 };
 
 export default TemplateWrapper;
+
+export const pageQuery = graphql`
+  query HeaderImageQuery {
+    headerImage: imageSharp(id: { regex: "/logo/" }) {
+      resolutions(width: 48, height: 48) {
+        ...GatsbyImageSharpResolutions
+      }
+    }
+  }
+`;

@@ -4,8 +4,8 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import PropTypes from 'prop-types';
 
 const StyledAnchor = styled(OutboundLink)`
-  padding-left: 1em;
   color: #f2f0fd;
+  padding-left: 1em;
 
   :hover {
     opacity: 0.6;
