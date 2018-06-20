@@ -28,7 +28,7 @@ const LogoText = styled.h1`
   vertical-align: middle;
 
   span {
-    color: #b9b2f4;
+    color: #e7a95c;
   }
 
   :hover {

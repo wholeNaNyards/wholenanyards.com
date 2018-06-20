@@ -96,7 +96,7 @@ export default TemplateWrapper;
 
 export const pageQuery = graphql`
   query HeaderImageQuery {
-    headerImage: imageSharp(id: { regex: "/logo/" }) {
+    headerImage: imageSharp(id: { regex: "/icon/" }) {
       resolutions(width: 48, height: 48) {
         ...GatsbyImageSharpResolutions
       }
