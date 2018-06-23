@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import { Redirect } from 'react-router';
 import Img from 'gatsby-image';
 
-import PageHeading from '../components/PageHeading';
-
 const PostContainer = styled.div`
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
@@ -208,7 +206,6 @@ const BlogPost = ({ data }) => {
   ) : (
     <div>
       <Helmet title={post.frontmatter.title} />
-      <PageHeading to="/">Blog</PageHeading>
       <PostContainer>
         <Title>{post.frontmatter.title}</Title>
         <Date>{post.frontmatter.date}</Date>

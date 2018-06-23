@@ -3,8 +3,6 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 
-import PageHeading from '../components/PageHeading';
-
 const Container = styled.div`
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);

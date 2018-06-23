@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import BlogCard from '../components/BlogCard';
-import PageHeading from '../components/PageHeading';
 
 const Cards = styled.div`
   display: flex;
@@ -17,7 +16,6 @@ const IndexPage = ({ data }) => {
   return (
     <div>
       <Helmet title="Blog" />
-      <PageHeading to="/">Blog</PageHeading>
       <Cards>
         {edges.map(({ node }) =>
             node.frontmatter.published && (
