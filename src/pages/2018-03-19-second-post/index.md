@@ -1,7 +1,7 @@
 ---
 path: '/second-post'
 title: 'Second Blog Post'
-published: true
+published: false
 date: 2018-03-19
 description: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, an'
 image: 'streamlabs-app-irl.png'
@@ -32,9 +32,9 @@ This is **bold** text
 
 ## Unordered
 
-* Create a list by starting a line with +, -, or \*
-* Sub-lists are made by indenting 2 spaces:
-  * Marker character change forces new list start:
+- Create a list by starting a line with +, -, or \*
+- Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
 
 ## Ordered
 

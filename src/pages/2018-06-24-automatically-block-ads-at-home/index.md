@@ -1,7 +1,7 @@
 ---
 path: '/automatically-block-ads-at-home'
 title: 'Automatically Block Ads on Every Device in Your Home'
-published: true
+published: false
 date: 2018-06-24
 description: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, an'
 image: 'data-usage.png'

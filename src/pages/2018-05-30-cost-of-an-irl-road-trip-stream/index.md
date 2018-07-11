@@ -1,7 +1,7 @@
 ---
 path: '/cost-of-an-irl-road-trip-stream'
 title: 'The True Cost of an IRL Road Trip Stream'
-published: true
+published: false
 date: 2018-05-30
 description: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, an'
 image: 'data-usage.png'
@@ -20,9 +20,9 @@ This post will cover our process to get a decent road trip stream set up. I'll a
 
 We had some important things to cover before we were ready for the first stream.
 
-* Same PrancingPwnies Experience
-* Stream Quality & Uptime
-* Cost
+- Same PrancingPwnies Experience
+- Stream Quality & Uptime
+- Cost
 
 ## Same PrancingPwnies Experience
 
