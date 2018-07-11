@@ -95,8 +95,6 @@ const Content = styled.div`
     font-size: 0.85em;
   }
 
-  h1,
-  h2,
   table,
   code {
     margin: 0 0 1.25rem 0;
@@ -112,6 +110,7 @@ const Content = styled.div`
     letter-spacing: -0.031em;
     line-height: 1.3;
     font-weight: 200;
+    margin: 0;
   }
 
   h1 {
@@ -177,6 +176,10 @@ const Content = styled.div`
   code {
     border: none !important;
     font-size: 0.81em;
+  }
+
+  p {
+    margin: 0.75rem 0;
   }
 
   .gatsby-highlight {
