@@ -39,7 +39,7 @@ Insert the SD card into your computer and open up Etcher. Click "Select Image" a
 
 ![Etcher UI](etcher.png)
 
-# Side Note - Mounting SD Card
+# Side Note - Mounting the SD Card
 
 Initially, my SD card was not found when I clicked on "Select Drive". To fix this on Mac, open up Disk Utility by pressing `cmd + space` and then typing "Disk Utility". Select your SD card from the list on the side, and then click "Mount" on the top bar. If your SD card is not listed, you may have a broken card or card reader. Troubleshooting this issue is out of the scope of this post.
 

@@ -42,7 +42,7 @@ const Title = styled.div`
   color: #796be9;
   letter-spacing: -0.031em;
   line-height: 1.3;
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: 200;
   margin: 0;
   text-align: center;
@@ -106,7 +106,7 @@ const Content = styled.div`
 
   h1,
   h2 {
-    color: #2a2a2a;
+    color: #5f4de5;
     letter-spacing: -0.031em;
     line-height: 1.3;
     font-weight: 200;
@@ -114,7 +114,7 @@ const Content = styled.div`
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.75em;
 
     @media (min-width: 600px) {
       font-size: 1.99em;
@@ -128,7 +128,7 @@ const Content = styled.div`
   }
 
   h2 {
-    font-size: 1.25em;
+    font-size: 1.5em;
 
     @media (min-width: 600px) {
       font-size: 1.5em;
