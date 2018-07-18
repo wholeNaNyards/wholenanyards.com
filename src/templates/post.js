@@ -22,11 +22,12 @@ const PostContainer = styled.div`
     padding: 2em 9em;
   }
 
-  img {
+  img,
+  video {
     display: block;
     height: auto;
     margin-bottom: 1em;
-    width: 100%;
+    max-width: 100%;
   }
 
   a {
@@ -202,25 +203,45 @@ const Content = styled.div`
   }
 `;
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data;
-  return !post.frontmatter.published ? (
-    <Redirect to="/404" />
-  ) : (
-    <div>
-      <Helmet title={post.frontmatter.title} />
-      <PostContainer>
-        <Title>{post.frontmatter.title}</Title>
-        <Date>{post.frontmatter.date}</Date>
-        <Img
-          sizes={post.frontmatter.image.childImageSharp.sizes}
-          alt={post.frontmatter.imageDescription}
-        />
-        <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-      </PostContainer>
-    </div>
-  );
-};
+class BlogPost extends React.Component {
+  componentDidMount() {
+    const videos = document.querySelectorAll('video');
+    if (videos && videos.length > 0) {
+      videos.forEach((video) => {
+        video.play();
+        video.addEventListener(
+          'ended',
+          () => {
+            setTimeout(() => {
+              video.play();
+            }, 3000);
+          },
+          false,
+        );
+      });
+    }
+  }
+
+  render() {
+    const { markdownRemark: post } = this.props.data;
+    return !post.frontmatter.published ? (
+      <Redirect to="/404" />
+    ) : (
+      <div>
+        <Helmet title={post.frontmatter.title} />
+        <PostContainer>
+          <Title>{post.frontmatter.title}</Title>
+          <Date>{post.frontmatter.date}</Date>
+          <Img
+            sizes={post.frontmatter.image.childImageSharp.sizes}
+            alt={post.frontmatter.imageDescription}
+          />
+          <Content dangerouslySetInnerHTML={{ __html: post.html }} />
+        </PostContainer>
+      </div>
+    );
+  }
+}
 
 BlogPost.propTypes = {
   data: PropTypes.shape({

@@ -96,3 +96,5 @@ public static void main(String[] args) {
 # YouTube
 
 <iframe width="600" height="400" src="https://www.youtube.com/embed/cOc6U5DgkQM"></iframe>
+
+`youtube: https://www.youtube.com/watch?v=2Xc9gXyf2G4`

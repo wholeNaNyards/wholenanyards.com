@@ -10,12 +10,13 @@ imageDescription: 'Raspberry Pi'
 
 [//]: # 'Raspberry Pi'
 
-The Raspberry Pi is a great device. It's affordable, powerful, and easy to use. This post will cover how to set up a Raspberry Pi using SSH, without the need for peripherals such as a USB mouse or keyboard.
+The Raspberry Pi is an inexpensive yet powerful mini computer. Among its countless uses, it can be used to automate your home, run a server, or even make a video game system. This post will cover how to set up a Raspberry Pi using SSH, without the need for peripherals such as a USB mouse or keyboard.
 
 To begin, we will need the following items:
 
 - **Raspberry Pi** (Model 3B is what I'm using here although I've recently done this setup with a Model 1B+ so any should work)
 - **Micro SD Card** (8GB or more, older models need regular SD cards)
+- **SD Card Writer**
 - **Power Supply** [(5V 2.5A)](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md)
 - **Ethernet Cable** (Optional, some models have built in WiFi)
 - **Laptop or PC** (For SSH)
