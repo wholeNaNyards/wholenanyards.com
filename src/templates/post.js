@@ -183,6 +183,10 @@ const Content = styled.div`
     margin: 0.75rem 0;
   }
 
+  li p {
+    margin: 0;
+  }
+
   .gatsby-highlight {
     background-color: #2a2a2a;
     border-radius: 0.3em;
