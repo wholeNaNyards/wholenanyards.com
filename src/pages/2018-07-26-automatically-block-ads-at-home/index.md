@@ -2,7 +2,7 @@
 path: '/automatically-block-ads-at-home'
 title: 'Automatically Block Ads on Every Device in Your Home'
 published: true
-date: 2018-07-24
+date: 2018-07-26
 description: 'Learn how to automatically block ads on every device in your home using Pi-hole on a Raspberry Pi.'
 image: 'pi-hole-dashboard.png'
 imageDescription: 'Pi-hole Dashboard'
@@ -29,7 +29,8 @@ Over the next few sections, I'm going to show you why you need this in your life
   - [Install Pi-hole](#install-pi-hole)
 - [Configuring Pi-hole](#configuring-pi-hole)
   - [Basic Configuration](#basic-configuration)
-  - [Advanced Metrics with DD-WRT (Optional)](#advanced-metrics-with-dd-wrt-optional)
+  - [IP Address Reservation (Optional)](#ip-address-reservation-optional)
+  - [Advanced Client Logging (Optional)](#advanced-client-logging-optional)
 - [Verify It Works](#verify-it-works)
 
 <!-- /TOC -->
@@ -111,38 +112,72 @@ The first thing we're going to need to do is set up our own Linux hardware. We w
 
 ## Install Pi-hole
 
-Connect to your Pi, through SSH, or open a terminal if you're directly connected. Enter the following command and run it:
+Connect to the Pi, through SSH, or open a terminal if you're directly connected. Enter the following command and run it:
 
 ```bash
 curl -sSL https://install.pi-hole.net | bash
 ```
 
-The installer will begin to run the setup.
+-- Start Install Image
 
-Press enter to Ok a bunch of stuff.
+The installer will begin to run the setup. An install UI will pop up. Press enter to begin the installation. We will be using the defaults for pretty much everything. You will be able to reconfigure everything later if you mess something up, so don't worry too much.
 
-Yes to log queries.
+On the "Choose an Interface" screen, select "eth0". **Note:** If your Raspberry Pi is connected over WiFi only, then select "wlan0". With your network interface selected, press enter to continue. On the "Select Protocols" screen, select "Ok" to select both IPv4 and IPv6 protocols.
 
-I select OpenDNS. Use arrow keys to move down, then press enter.
+Select "Yes" to log queries as well as "Yes" to installing the admin interface. These tools will allow us to see graphs and metrics about our network usage.
 
-Ok on
+Here's the only default I don't use. On the "Select Upstream DNS Provider" screen, I select "OpenDNS". Use the arrow keys to move down and highlight "OpenDNS", then press enter.
 
-ONce you are finished with the install, you can type `exit` to quit the SSH / terminal session. That's it, Pi-hole is now installed.
+-- Upstream DNS Provider Image
+
+Once you are finished with the install, you can type `exit` to quit the SSH / terminal session. That's it, Pi-hole is now installed!
+
+Let's verify that the installation worked. Open your browser and navigate to the IP address of the Pi followed by "/admin". So, if my Pi had an IP address of "192.168.1.135", then I would navigate to:
+
+```
+http://192.168.1.135/admin
+```
+
+If everything worked, you should see the Pi-hole dashboard, which should look similar to the image at the top of this post.
 
 # Configuring Pi-hole
 
-Some stuff here.
+With Pi-hole installed, it's now time to configure it to be used across our entire network.
 
 ## Basic Configuration
 
-Stuff.
+To set up Pi-hole on our network, we need to tell our router to use the Raspberry Pi as its DNS. We need to make sure we have the IP address of our Raspberry Pi written down. For these examples, I will be using the IP address "192.168.1.135".
 
-## Advanced Metrics with DD-WRT (Optional)
+It's time to log into your router. Most likely this can be done by going to "192.168.1.1" in your browser and logging in with your credentials. A quick Google search should help you if you're having trouble.
 
-Cool stuff here.
+Navigate to the DNS section/settings in your router's web portal. For me, I had to go to Advanced -> Internet Setup, and found it under a section called "Domain Name Server (DNS) Address". Enter the IP address of the Pi. For my router, I did this by selecting "Use These DNS Servers", and then entering in my Pi's IP address into the "Primary DNS" field.
+
+-- DNS Image
+
+Make sure that there are no other DNS entries ("Secondary DNS"). If there are, make sure that they are left blank. Apply and save your new changes. Your router may restart now to apply the changes. **Note:** If you do not have internet after the router reboots, go back to the DNS settings in the web portal and reset them. I did this by selecting "Get Dynamically from ISP".
+
+## IP Address Reservation (Optional)
+
+While not required, I do recommend reserving the Pi's IP address. Because we've hard-coded the IP address of the PI to the router's DNS, we don't want to run into an issue where the router grants a different device the IP address of the Pi.
+
+Let's reserve the IP address to only be used for the Pi. In my router's web portal, I went to Advanced -> Lan Setup -> Address Reservation. Then I clicked "Add" and selected my Pi from the list of devices. Yours should be named "raspberrypi". After that I clicked apply and closed my browser.
+
+-- IP Address Reservation Image
+
+## Advanced Client Logging (Optional)
+
+Pi-hole comes with some advanced network statistics at the client level. This allows you to see every request from every device. It lets you know which devices are getting the most ads. This is an advanced feature and can only be enabled if your router has support for custom DNSMasq.
+
+-- Client Metrics Image
+
+Unfortunately, most routers do not support custom DNSMasq options. If your router has advanced firmware, such as DD-WRT, then you are good to go! Search online to see if your router supports custom DNSMasq.
+
+If your router is compatible, go [here](https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245) to learn how to set up advanced client logging. **Be sure to use method #2.**
+
+If you are curious about upgrading your router's firmware to DD-WRT, search online to find a tutorial. Be warned though, that this can be dangerous and mess with your router. I don't recommend it unless you absolutely know what you are doing. I was able to find a [tutorial](https://www.tweaking4all.com/hardware/netgear-r7000-dd-wrt/) for my router and upgraded it without issues.
 
 # Verify It Works
 
-Check this site out.
+That's it, everything should be set up and ready to go now! To test that Pi-hole is working, you can use [this page](https://pi-hole.net/pages-to-test-ad-blocking-performance/) to verify that ads are being blocked. Check out your Pi-hole dashboard at [http://pi.hole/admin/](http://pi.hole/admin/). There's a lot of cool metrics and configurations to explore. If you lost your Pi-hole admin password, go [here](https://discourse.pi-hole.net/t/how-do-i-set-or-reset-the-web-interface-password/1328) to learn how to reset it. Now go and enjoy the world, ad free!
 
 In a future post I will be exploring the feasability of blocking all ads when outside the home on a mobile network. See you then!
