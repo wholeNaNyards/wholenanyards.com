@@ -10,9 +10,9 @@ imageDescription: 'Pi-hole Dashboard'
 
 [//]: # 'Image of Pi-hole Dashboard'
 
-We all hate ads. They are the dirty price we pay to enjoy our favorite free sites. This is why we use an Ad Blocker. Maybe uBlock? It's easy enough to put an ad blocker on my PC, I've been doing it for years. But what about my fianc&#233;e's PC? Or our laptops? And our phones, tablets, xbox, and any other random device we seem to keep acquiring?
+Everybody hates ads. We see them everywhere. Our websites, apps, gaming consoles, smart TVs, the list goes on. Why can't we just use our devices ad-free? Well, for about $40, we can completely and automatically block ads across all of our devices at home.
 
-We're going to accomplish this by using a program called [Pi-hole](https://pi-hole.net/). From the website, Pi-hole provides "Network-wide ad blocking via your own Linux hardware". We will be using a Raspberry Pi and Pi-hole to automaticaly block ads for all of our devices at home.
+We're going to accomplish this by using a program called [Pi-hole](https://pi-hole.net/). From the website, Pi-hole provides "Network-wide ad blocking via your own Linux hardware". We will be using a Raspberry Pi and Pi-hole to automaticaly block ads across all of our devices at home.
 
 Over the next few sections, I'm going to show you why you need this in your life. Feel free to skip them if you want to get straight to the [setup](#setup).
 
@@ -49,7 +49,7 @@ The reason for blocking ads should be fairly obvious, but I'm going to cover som
 
 Pi-hole works by blocking ads on the network level. This means that there are no individual ad blockers on my devices. They all just get ad blocking automatically. When our device makes a network request, Pi-hole will block that request if it's for an ad.
 
-I don't think we realize just how many ads are being forced on us when using our devices. It's not just your laptop, but your phone, xbox, smart TV, etc. As an example, below is a screenshot from my phone with and without Pi-hole. I look at my weather app every morning when I wake up. It's nice to not have to look at ads when I'm just trying to figure out what the weather is going to be like. The ads are gone, there is a weird blank spot in the UI now, but I can deal with that.
+I don't think we realize just how many ads are being forced on us when using our devices. As an example, below is a screenshot from my phone with and without Pi-hole. I look at my weather app every morning when I wake up. It's nice to not have to look at ads when I'm just trying to figure out what the weather is going to be like. The ads are gone, there is a weird blank spot in the UI now, but I can deal with that.
 
 There is no individual device setup required for this to work on your devices! This ad blocking simply just works, everywhere, on all devices as long as they are connected to your network.
 
@@ -64,7 +64,7 @@ If you're like me, you know the pain of having too many tabs opened in Chrome. A
 Forbes Article Without Ads Being Blocked:
 
 <video width="688" height="372">
-  <source src="forbes-slow-good.mp4" type="video/mp4">
+  <source src="forbes-load-without-pi-hole.mp4" type="video/mp4">
   Video of forbes page load time.
 </video>
 
@@ -80,7 +80,7 @@ After **0.338 sec**, we are ready to read the content. Becuase of the ads, our b
 The Same Forbes Article with Ads Being Blocked:
 
 <video width="708" height="362">
-  <source src="pi-hole-no-ublock.mp4" type="video/mp4">
+  <source src="forbes-load-with-pi-hole.mp4" type="video/mp4">
   Video of forbes page load time.
 </video>
 
@@ -108,7 +108,7 @@ Among other things, uBlock Origin can do the following:
 
 # Setup
 
-The first thing we're going to need to do is set up our own Linux hardware. We will be using the [Raspberry Pi](https://www.raspberrypi.org/). I won't cover how to set up a Raspberry Pi in this post, I already wrote an [article](headless-raspberry-pi-setup) to help you out. There's also many other resources out there to help you. If you haven't already, take a moment to get your Raspberry Pi set up. Once you have access to a Raspberry Pi (preferably via SSH), you are ready to setup Pi-hole.
+Ok, let's get to work. The first thing we're going to need to do is set up our own Linux hardware. We will be using the [Raspberry Pi](https://www.raspberrypi.org/). I won't cover how to set up a Raspberry Pi in this post, I already wrote an [article](headless-raspberry-pi-setup) to help you out. There's also many other resources out there to help you. If you haven't already, take a moment to get your Raspberry Pi set up. Once you have access to a Raspberry Pi (preferably via SSH), you are ready to setup Pi-hole.
 
 ## Install Pi-hole
 
@@ -118,7 +118,7 @@ Connect to the Pi, through SSH, or open a terminal if you're directly connected.
 curl -sSL https://install.pi-hole.net | bash
 ```
 
--- Start Install Image
+![Begin Pi-hole Installation](pi-hole-start-install.png)
 
 The installer will begin to run the setup. An install UI will pop up. Press enter to begin the installation. We will be using the defaults for pretty much everything. You will be able to reconfigure everything later if you mess something up, so don't worry too much.
 
@@ -128,7 +128,7 @@ Select "Yes" to log queries as well as "Yes" to installing the admin interface. 
 
 Here's the only default I don't use. On the "Select Upstream DNS Provider" screen, I select "OpenDNS". Use the arrow keys to move down and highlight "OpenDNS", then press enter.
 
--- Upstream DNS Provider Image
+![Pi-hole Installation Select Upstream DNS](pi-hole-select-upstream-dns.png)
 
 Once you are finished with the install, you can type `exit` to quit the SSH / terminal session. That's it, Pi-hole is now installed!
 
@@ -152,7 +152,7 @@ It's time to log into your router. Most likely this can be done by going to "192
 
 Navigate to the DNS section/settings in your router's web portal. For me, I had to go to Advanced -> Internet Setup, and found it under a section called "Domain Name Server (DNS) Address". Enter the IP address of the Pi. For my router, I did this by selecting "Use These DNS Servers", and then entering in my Pi's IP address into the "Primary DNS" field.
 
--- DNS Image
+![Set Custom DNS on Router](router-set-custom-dns.png)
 
 Make sure that there are no other DNS entries ("Secondary DNS"). If there are, make sure that they are left blank. Apply and save your new changes. Your router may restart now to apply the changes. **Note:** If you do not have internet after the router reboots, go back to the DNS settings in the web portal and reset them. I did this by selecting "Get Dynamically from ISP".
 
@@ -162,13 +162,13 @@ While not required, I do recommend reserving the Pi's IP address. Because we've 
 
 Let's reserve the IP address to only be used for the Pi. In my router's web portal, I went to Advanced -> Lan Setup -> Address Reservation. Then I clicked "Add" and selected my Pi from the list of devices. Yours should be named "raspberrypi". After that I clicked apply and closed my browser.
 
--- IP Address Reservation Image
+![Reserve Pi IP Address on Router](router-address-reservation.png)
 
 ## Advanced Client Logging (Optional)
 
 Pi-hole comes with some advanced network statistics at the client level. This allows you to see every request from every device. It lets you know which devices are getting the most ads. This is an advanced feature and can only be enabled if your router has support for custom DNSMasq.
 
--- Client Metrics Image
+![Pi-hole Client Metrics](pi-hole-client-graph.png)
 
 Unfortunately, most routers do not support custom DNSMasq options. If your router has advanced firmware, such as DD-WRT, then you are good to go! Search online to see if your router supports custom DNSMasq.
 

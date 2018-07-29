@@ -72,7 +72,7 @@ Initially, my SD card was not found when I clicked on "Select Drive". To fix thi
 
 ## Enable SSH on the Pi
 
-Due to some issues in the past, [SSH is disabled](https://www.raspberrypi.org/blog/a-security-update-for-raspbian-pixel) by default on the Pi. People weren't changing the default login information and their Pis were being exposed and used for malicious activities. We need to enable SSH on our Pi. It's very simple, all we have to do is add a file named "ssh" in the root of the SD card. (No extension, and it doesn't need any content in it).
+Due to some issues in the past, [SSH is disabled](https://www.raspberrypi.org/blog/a-security-update-for-raspbian-pixel) by default on the Pi. People weren't changing the default login information and their Pis were being exposed and used for malicious activities. We need to enable SSH on the Pi. It's very simple, all we have to do is add a file named "ssh" in the root of the SD card. (No extension, and it doesn't need any content in it).
 
 With your SD card still connected and mounted to your computer, go to the root directory. For mine, it was located at /Volumes/boot. Open your terminal and execute the following commands:
 
