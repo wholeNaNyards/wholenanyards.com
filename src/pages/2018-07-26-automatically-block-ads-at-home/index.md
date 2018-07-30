@@ -63,10 +63,12 @@ If you're like me, you know the pain of having too many tabs opened in Chrome. A
 
 Forbes Article Without Ads Being Blocked:
 
-<video width="688" height="372">
-  <source src="forbes-load-without-pi-hole.mp4" type="video/mp4">
-  Video of forbes page load time.
-</video>
+<video-gif loop-duration="3000">
+  <video width="688" height="372">
+    <source src="forbes-load-without-pi-hole.mp4" type="video/mp4">
+    Video of forbes page load time without Pi-hole.
+  </video>
+</video-gif>
 
 Let's analyze the above page load:
 
@@ -79,10 +81,12 @@ After **0.338 sec**, we are ready to read the content. Becuase of the ads, our b
 
 The Same Forbes Article with Ads Being Blocked:
 
-<video width="708" height="362">
-  <source src="forbes-load-with-pi-hole.mp4" type="video/mp4">
-  Video of forbes page load time.
-</video>
+<video-gif loop-duration="3000">
+  <video width="708" height="362">
+    <source src="forbes-load-with-pi-hole.mp4" type="video/mp4">
+    Video of forbes page load time with Pi-hole.
+  </video>
+</video-gif>
 
 Let’s analyze the above page load:
 

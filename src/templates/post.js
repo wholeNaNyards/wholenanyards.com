@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Redirect } from 'react-router';
 import Img from 'gatsby-image';
+import rehypeReact from 'rehype-react';
+
+import VideoGIF from '../components/VideoGIF';
 
 const PostContainer = styled.div`
   background-color: #fff;
@@ -207,45 +210,30 @@ const Content = styled.div`
   }
 `;
 
-class BlogPost extends React.Component {
-  componentDidMount() {
-    const videos = document.querySelectorAll('video');
-    if (videos && videos.length > 0) {
-      videos.forEach((video) => {
-        video.play();
-        video.addEventListener(
-          'ended',
-          () => {
-            setTimeout(() => {
-              video.play();
-            }, 3000);
-          },
-          false,
-        );
-      });
-    }
-  }
+const BlogPost = ({ data }) => {
+  const { markdownRemark: post } = data;
+  const renderAst = new rehypeReact({
+    createElement: React.createElement,
+    components: { 'video-gif': VideoGIF },
+  }).Compiler;
 
-  render() {
-    const { markdownRemark: post } = this.props.data;
-    return !post.frontmatter.published ? (
-      <Redirect to="/404" />
-    ) : (
-      <div>
-        <Helmet title={post.frontmatter.title} />
-        <PostContainer>
-          <Title>{post.frontmatter.title}</Title>
-          <Date>{post.frontmatter.date}</Date>
-          <Img
-            sizes={post.frontmatter.image.childImageSharp.sizes}
-            alt={post.frontmatter.imageDescription}
-          />
-          <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-        </PostContainer>
-      </div>
-    );
-  }
-}
+  return !post.frontmatter.published ? (
+    <Redirect to="/404" />
+  ) : (
+    <div>
+      <Helmet title={post.frontmatter.title} />
+      <PostContainer>
+        <Title>{post.frontmatter.title}</Title>
+        <Date>{post.frontmatter.date}</Date>
+        <Img
+          sizes={post.frontmatter.image.childImageSharp.sizes}
+          alt={post.frontmatter.imageDescription}
+        />
+        <Content>{renderAst(post.htmlAst)}</Content>
+      </PostContainer>
+    </div>
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
@@ -254,7 +242,6 @@ BlogPost.propTypes = {
         date: PropTypes.string,
         title: PropTypes.string,
       }),
-      html: PropTypes.string,
     }),
   }),
 };
@@ -266,7 +253,6 @@ BlogPost.defaultProps = {
         date: '',
         title: '',
       },
-      html: '',
     },
   },
 };
@@ -276,7 +262,7 @@ export default BlogPost;
 export const postQuery = graphql`
   query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+      htmlAst
       frontmatter {
         title
         date: date(formatString: "MMMM DD YYYY")
