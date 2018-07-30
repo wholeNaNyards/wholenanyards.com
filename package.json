@@ -33,21 +33,17 @@
     "react": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-lines-ellipsis": "^0.10.2",
-    "s3-deploy": "^1.0.0",
+    "s3-deploy": "^1.1.1",
     "styled-components": "^3.2.3"
   },
-  "keywords": [
-    "wholeNaNyards",
-    "wholeNaNyards.com",
-    "wholenanyards",
-    "wholenanyards.com"
-  ],
+  "keywords": ["wholeNaNyards", "wholeNaNyards.com", "wholenanyards", "wholenanyards.com"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && s3-deploy './public/**' --cwd './public/' --bucket wholenanyards.com  --deleteRemoved --gzip && npm run clear",
+    "deploy":
+      "gatsby build --prefix-paths && s3-deploy './public/**' --cwd './public/' --bucket wholenanyards.com --deleteRemoved --gzip=xml,html,htm,js,css,ttf,otf,svg,txt && npm run clear",
     "clear": "aws-cloudfront-invalidate E1HB8TZFWGFSMK"
   },
   "devDependencies": {
