@@ -14,7 +14,6 @@ class VideoGIF extends React.Component {
       },
       false,
     );
-    video.play();
   }
 
   render() {
