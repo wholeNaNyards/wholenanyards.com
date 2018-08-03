@@ -110,7 +110,7 @@ const Content = styled.div`
 
   h1,
   h2 {
-    color: #5f4de5;
+    color: #4e939a;
     letter-spacing: -0.031em;
     line-height: 1.3;
     font-weight: 200;

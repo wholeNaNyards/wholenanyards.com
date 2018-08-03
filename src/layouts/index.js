@@ -9,12 +9,7 @@ import Header from '../components/Header';
 // Base Color: #4e939a
 // Lighter: #7cc2c5
 // Darker: #48888f
-
-// Lighter Grey: #d4d4d4
-// Light Grey: #a9a9a9
-// Grey: #7f7f7f
-// Dark Grey: #555
-// Darker Grey: #2a2a2a
+// Gray: #eeebff
 
 const globalStyles = `
   html { font-size: 1em; }
