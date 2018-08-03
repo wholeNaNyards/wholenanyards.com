@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import IconLink from '../IconLink';
 
 const NavBar = styled.nav`
-  background-color: #6c5ce7;
+  background-color: #4e939a;
   color: #f2f0fd;
   padding: 0.5em 1.25em;
   margin-bottom: 1.25em;

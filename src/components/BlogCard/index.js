@@ -54,7 +54,7 @@ const Container = styled(Link)`
 `;
 
 const Title = styled(ResponsiveEllipsis)`
-  color: #796be9;
+  color: #48888f;
   line-height: 1.3;
   font-size: 1.5em;
   font-weight: 600;
@@ -129,7 +129,7 @@ const Actions = styled.div`
 `;
 
 const Action = styled.div`
-  color: #5f4de5;
+  color: #4e939a;
   letter-spacing: 0.75px;
   font-size: 1.12em;
   text-transform: uppercase;

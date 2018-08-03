@@ -6,10 +6,9 @@ import 'prismjs/themes/prism-okaidia.css';
 
 import Header from '../components/Header';
 
-// Base Color: #6c5ce7
-// Lighter: #796be9
-// Darker: #5f4de5
-// Complement: #e7a95c
+// Base Color: #4e939a
+// Lighter: #
+// Darker: #
 
 // Lighter Grey: #d4d4d4
 // Light Grey: #a9a9a9

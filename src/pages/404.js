@@ -23,7 +23,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  color: #796be9;
+  color: #48888f;
   letter-spacing: -0.031em;
   line-height: 1.3;
   font-size: 1.5em;
@@ -60,7 +60,7 @@ const Content = styled.div`
   }
 
   a {
-    color: #796be9;
+    color: #48888f;
   }
 `;
 
