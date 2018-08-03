@@ -15,7 +15,7 @@ const globalStyles = `
   html { font-size: 1em; }
 
   body {
-    background-color: #f2f0fd;
+    background-color: #eeebff;
     color: #212529;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
