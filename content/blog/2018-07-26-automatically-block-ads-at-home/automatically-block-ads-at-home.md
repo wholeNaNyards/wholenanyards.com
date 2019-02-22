@@ -1,16 +1,14 @@
 ---
-path: '/automatically-block-ads-at-home'
 title: 'Automatically Block Ads on Every Device in Your Home'
 published: true
 date: 2018-07-26
-description: 'Learn how to automatically block ads on every device in your home using Pi-hole on a Raspberry Pi.'
 image: 'pi-hole-dashboard.png'
 imageDescription: 'Pi-hole Dashboard'
 ---
 
 [//]: # 'Image of Pi-hole Dashboard'
 
-Everybody hates ads. We see them everywhere. Our websites, apps, gaming consoles, smart TVs, the list goes on. Why can't we just use our devices ad-free? Well, for about $40, we can completely and automatically block ads across all of our devices at home.
+Everybody hates ads. We see them everywhere. Our websites, apps, gaming consoles, smart TVs, the list goes on. Why can't we just use our devices ad-free? Well, for about \$40, we can completely and automatically block ads across all of our devices at home.
 
 We're going to accomplish this by using a program called [Pi-hole](https://pi-hole.net/). From the website, Pi-hole provides "Network-wide ad blocking via your own Linux hardware". We will be using a Raspberry Pi and Pi-hole to automaticaly block ads across all of our devices at home.
 
@@ -112,7 +110,7 @@ Among other things, uBlock Origin can do the following:
 
 # Setup
 
-Ok, let's get to work. The first thing we're going to need to do is set up our own Linux hardware. We will be using the [Raspberry Pi](https://www.raspberrypi.org/). I won't cover how to set up a Raspberry Pi in this post, I already wrote an [article](headless-raspberry-pi-setup) to help you out. There's also many other resources out there to help you. If you haven't already, take a moment to get your Raspberry Pi set up. Once you have access to a Raspberry Pi (preferably via SSH), you are ready to setup Pi-hole.
+Ok, let's get to work. The first thing we're going to need to do is set up our own Linux hardware. We will be using the [Raspberry Pi](https://www.raspberrypi.org/). I won't cover how to set up a Raspberry Pi in this post, I already wrote an [article](/headless-raspberry-pi-setup) to help you out. There's also many other resources out there to help you. If you haven't already, take a moment to get your Raspberry Pi set up. Once you have access to a Raspberry Pi (preferably via SSH), you are ready to setup Pi-hole.
 
 ## Install Pi-hole
 

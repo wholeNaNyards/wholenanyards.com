@@ -1,9 +1,7 @@
 ---
-path: '/cost-of-an-irl-road-trip-stream'
 title: 'The True Cost of an IRL Road Trip Stream'
 published: false
 date: 2018-05-30
-description: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, an'
 image: 'data-usage.png'
 imageDescription: 'Data usage graph for irl road trip stream'
 ---
@@ -15,6 +13,17 @@ My fianc&#233;e, [PrancingPwnies](https://www.twitch.tv/prancingpwnies/), is a s
 The biggest thing that has helped her channel grow has been a **consistent schedule**. Lately, we've been doing a lot of traveling. We wanted to figure out how she could keep up that consistency by streaming while on the road.
 
 This post will cover our process to get a decent road trip stream set up. I'll also go over everything we've learned, and most importantly, **the cost of everything**. (TL;DR at bottom).
+
+---
+
+<!-- TOC -->
+
+- [Overview](#overview)
+  - [Same PrancingPwnies Experience](#same-prancingpwnies-experience)
+
+<!-- /TOC -->
+
+---
 
 # Overview
 

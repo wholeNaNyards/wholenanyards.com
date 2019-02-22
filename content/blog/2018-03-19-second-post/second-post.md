@@ -1,9 +1,7 @@
 ---
-path: '/second-post'
 title: 'Second Blog Post'
 published: false
 date: 2018-03-19
-description: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, an'
 image: 'streamlabs-app-irl.png'
 imageDescription: 'Description of second blog post image'
 ---

@@ -1,0 +1,23 @@
+:global(body) {
+  background-color: #eeebff;
+}
+
+.mainContainer {
+  margin: 0 1.25em;
+}
+
+@media (min-width: 600px) {
+  .mainContainer {
+    margin: 0 2em;
+  }
+}
+@media (min-width: 900px) {
+  .mainContainer {
+    margin: 0 7em;
+  }
+}
+@media (min-width: 1200px) {
+  .mainContainer {
+    margin: 0 13em;
+  }
+}

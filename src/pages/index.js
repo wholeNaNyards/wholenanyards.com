@@ -1,102 +1,65 @@
 import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-import BlogCard from '../components/BlogCard';
-
-const Cards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
+import { StaticQuery, graphql } from 'gatsby';
+import Layout from '../components/Layout/Layout';
+import SEO from '../components/SEO/SEO';
+import BlogCard from '../components/BlogCard/BlogCard';
+import styles from './index.module.css';
 
 const IndexPage = ({ data }) => {
-  const { allMarkdownRemark: { edges } } = data;
+  const posts = data.allMarkdownRemark.edges;
+
   return (
-    <div>
-      <Helmet title="Blog" />
-      <Cards>
-        {edges.map(({ node }) =>
-            node.frontmatter.published && (
-              <BlogCard
-                key={node.frontmatter.title}
-                title={node.frontmatter.title}
-                date={node.frontmatter.date}
-                description={node.frontmatter.description}
-                image={node.frontmatter.image.childImageSharp.sizes}
-                path={node.frontmatter.path}
-              />
-            ))}
-      </Cards>
-    </div>
+    <Layout>
+      <SEO title="Blog" />
+      <div className={styles.cards}>
+        {posts.map(({ node }) => (
+          <BlogCard
+            key={node.fields.slug}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            description={node.excerpt}
+            imageUrl={node.frontmatter.image.childImageSharp.fluid}
+            imageDescription={node.frontmatter.imageDescription}
+            slug={node.fields.slug}
+          />
+        ))}
+      </div>
+    </Layout>
   );
 };
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(PropTypes.shape({
-        node: PropTypes.shape({
-          frontmatter: PropTypes.shape({
-            path: PropTypes.string,
-            title: PropTypes.string,
-            image: PropTypes.string,
-          }),
-        }),
-      })),
-    }),
-  }),
-};
-
-IndexPage.defaultProps = {
-  data: {
-    allMarkdownRemark: {
-      edges: [
-        {
-          node: {
-            frontmatter: {
-              path: '',
-              title: '',
-            },
-          },
-        },
-      ],
-    },
-  },
-};
-
-export default IndexPage;
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(
-      limit: 10
-      filter: { frontmatter: { published: { eq: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            path
-            date(formatString: "MMMM DD YYYY")
-            description
-            image {
-              childImageSharp {
-                resize(width: 1500, height: 1500) {
-                  src
+export default props => (
+  <StaticQuery
+    query={graphql`
+      {
+        allMarkdownRemark(
+          limit: 10
+          filter: { frontmatter: { published: { eq: true } } }
+          sort: { fields: [frontmatter___date], order: DESC }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              excerpt(pruneLength: 140)
+              frontmatter {
+                title
+                date(formatString: "MMMM DD YYYY")
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 650) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
-                sizes(maxWidth: 650) {
-                  ...GatsbyImageSharpSizes
-                }
+                imageDescription
               }
             }
-            imageDescription
-            published
           }
         }
       }
-    }
-  }
-`;
+    `}
+    render={data => <IndexPage data={data} {...props} />}
+  />
+);

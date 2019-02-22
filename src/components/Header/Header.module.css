@@ -1,0 +1,48 @@
+.logoImageWrapper {
+  vertical-align: middle;
+}
+
+.navBar {
+  background-color: #4e939a;
+  color: #f2f0fd;
+  padding: 0.5em 1.25em;
+  margin-bottom: 1.25em;
+}
+
+@media (min-width: 900px) {
+  .navBar {
+    padding: 0.5em 6em;
+  }
+}
+@media (min-width: 1200px) {
+  .navBar {
+    padding: 0.5em 12em;
+  }
+}
+
+.iconContainer {
+  float: right;
+  text-align: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.icon {
+  display: inline-block;
+  line-height: 48px; /* Same height of logo image, center vertically */
+}
+
+.icon a {
+  color: #f2f0fd;
+  padding-left: 1em;
+}
+
+.icon a:hover {
+  opacity: 0.6;
+}
+
+.icon svg {
+  font-size: 1.375em;
+  vertical-align: middle;
+}

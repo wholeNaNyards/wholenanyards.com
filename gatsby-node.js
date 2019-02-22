@@ -1,37 +1,53 @@
 const path = require('path');
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+// Use the name of the Markdown file for slug
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
 
-  const postTemplate = path.resolve('src/templates/post.js');
+  if (node.internal.type === 'MarkdownRemark') {
+    const fileNode = getNode(node.parent);
+    const slug = `/${path.basename(fileNode.relativePath, '.md')}/`;
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
+};
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const blogPost = path.resolve('src/templates/post.js');
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: { frontmatter: { published: { eq: true } } }) {
         edges {
           node {
-            html
-            id
-            frontmatter {
-              path
-              title
+            fields {
+              slug
             }
           }
         }
       }
     }
-  `).then((res) => {
-    if (res.errors) {
-      return Promise.reject(res.errors);
+  `).then((result) => {
+    if (result.errors) {
+      throw result.errors;
     }
 
-    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const posts = result.data.allMarkdownRemark.edges;
+
+    posts.forEach((post) => {
       createPage({
-        path: node.frontmatter.path,
-        component: postTemplate,
+        path: post.node.fields.slug,
+        component: blogPost,
+        context: {
+          slug: post.node.fields.slug,
+        },
       });
     });
-
-    return Promise.resolve();
   });
 };

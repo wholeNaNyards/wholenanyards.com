@@ -1,283 +1,99 @@
 import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Redirect } from 'react-router';
 import Img from 'gatsby-image';
-import rehypeReact from 'rehype-react';
-
-import VideoGIF from '../components/VideoGIF';
-
-const PostContainer = styled.div`
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid #dfdfdf;
-  margin-bottom: 2.5em;
-  padding: 1em;
-
-  @media (min-width: 600px) {
-    padding: 2em 2em;
-  }
-  @media (min-width: 900px) {
-    padding: 2em 7em;
-  }
-  @media (min-width: 1200px) {
-    padding: 2em 9em;
-  }
-
-  img,
-  video {
-    display: block;
-    height: auto;
-    margin-bottom: 1em;
-    max-width: 100%;
-  }
-
-  a {
-    color: #2100ef;
-
-    :hover {
-      color: #5239fd;
-    }
-  }
-`;
-
-const Title = styled.div`
-  color: #48888f;
-  letter-spacing: -0.031em;
-  line-height: 1.3;
-  font-size: 1.75em;
-  font-weight: 200;
-  margin: 0;
-  text-align: center;
-
-  @media (min-width: 600px) {
-    font-size: 1.885em;
-  }
-  @media (min-width: 900px) {
-    font-size: 1.78em;
-  }
-  @media (min-width: 1200px) {
-    font-size: 1.685em;
-  }
-`;
-
-const Date = styled.div`
-  color: #a9a9a9;
-  letter-spacing: 1.5px;
-  font-size: 0.82em;
-  font-weight: 200;
-  margin: 0.75em 0 1em 0;
-  text-align: center;
-
-  @media (min-width: 600px) {
-    font-size: 0.765em;
-  }
-
-  @media (min-width: 900px) {
-    font-size: 0.723em;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 0.685em;
-  }
-`;
-
-const Content = styled.div`
-  color: #555;
-  line-height: 1.7;
-
-  @media (min-width: 600px) {
-    font-size: 0.945em;
-  }
-
-  @media (min-width: 900px) {
-    font-size: 0.89em;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 0.85em;
-  }
-
-  table,
-  code {
-    margin: 0 0 1.25rem 0;
-  }
-
-  hr {
-    border: 1px solid #d4d4d4;
-  }
-
-  h1,
-  h2 {
-    color: #48888f;
-    letter-spacing: -0.031em;
-    line-height: 1.3;
-    font-weight: 200;
-    margin: 0;
-  }
-
-  h1 {
-    font-size: 1.75em;
-
-    @media (min-width: 600px) {
-      font-size: 1.99em;
-    }
-    @media (min-width: 900px) {
-      font-size: 2em;
-    }
-    @media (min-width: 1200px) {
-      font-size: 1.98em;
-    }
-  }
-
-  h2 {
-    font-size: 1.5em;
-
-    @media (min-width: 600px) {
-      font-size: 1.5em;
-    }
-    @media (min-width: 900px) {
-      font-size: 1.5em;
-    }
-    @media (min-width: 1200px) {
-      font-size: 1.49em;
-    }
-  }
-
-  strong {
-    color: #2a2a2a;
-  }
-
-  blockquote {
-    border-left: 8px solid #eaeaea;
-    font-style: italic;
-    margin: 1.6rem 1.6rem 1.6rem 0;
-    padding: 0 0 0 0.8rem;
-  }
-
-  table {
-    border-collapse: collapse;
-    display: block;
-    overflow: auto;
-    width: 100%;
-  }
-
-  table tr:nth-child(2n) {
-    background-color: #f6f6f6;
-  }
-
-  td,
-  th {
-    border: 1px solid #dfe2e5;
-    padding: 6px 13px;
-  }
-
-  iframe {
-    border: none;
-  }
-
-  code {
-    border: none !important;
-    font-size: 0.81em;
-  }
-
-  p {
-    margin: 0.75rem 0;
-  }
-
-  li p {
-    margin: 0;
-  }
-
-  .gatsby-highlight {
-    background-color: #2a2a2a;
-    border-radius: 0.3em;
-    margin: 0.5em 0;
-    padding: 1em;
-    overflow: auto;
-  }
-
-  .gatsby-highlight pre[class*='language-'] {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
-    overflow: initial;
-    float: left;
-    min-width: 100%;
-  }
-`;
+import RehypeReact from 'rehype-react';
+import { graphql } from 'gatsby';
+import 'prismjs/themes/prism-okaidia.css'; // Custom CSS for code blocks
+import Layout from '../components/Layout/Layout';
+import SEO from '../components/SEO/SEO';
+import VideoGIF from '../components/VideoGIF/VideoGIF';
+import styles from './post.module.css';
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
-  const renderAst = new rehypeReact({
+
+  const renderAst = new RehypeReact({
     createElement: React.createElement,
     components: { 'video-gif': VideoGIF },
   }).Compiler;
 
-  return !post.frontmatter.published ? (
-    <Redirect to="/404" />
-  ) : (
-    <div>
-      <Helmet title={post.frontmatter.title} />
-      <PostContainer>
-        <Title>{post.frontmatter.title}</Title>
-        <Date>{post.frontmatter.date}</Date>
-        <Img
-          sizes={post.frontmatter.image.childImageSharp.sizes}
-          alt={post.frontmatter.imageDescription}
-        />
-        <Content>{renderAst(post.htmlAst)}</Content>
-      </PostContainer>
-    </div>
+  return (
+    <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.excerpt}
+        image={post.frontmatter.image.childImageSharp.fluid.src}
+        pathname={post.fields.slug}
+        article
+      />
+      <div className={styles.container}>
+        <div className={styles.blogContainer}>
+          <h1 className={styles.title}>{post.frontmatter.title}</h1>
+          <h6 className={styles.date}>{post.frontmatter.date}</h6>
+          <Img
+            fluid={post.frontmatter.image.childImageSharp.fluid}
+            alt={post.frontmatter.imageDescription}
+          />
+          <div className={styles.content}>{renderAst(post.htmlAst)}</div>
+        </div>
+        <hr className={styles.authorDivider} />
+        <div className={styles.author}>
+          <Img
+            fluid={data.authorImage.childImageSharp.fluid}
+            className={styles.authorImage}
+            imgStyle={{ borderRadius: '50%', border: '1px solid #2a2a2a' }}
+          />
+          <div className={styles.authorContent}>
+            <h3>wholeNaNyards</h3>
+            <p>
+              Nick is a gamer, software engineer, and occasional tech writer. wholeNaNyards.com is a
+              collection of his thoughts, tutorials, and random banter. You can check out his
+              {' '}
+              <a href={data.site.siteMetadata.social.twitter}>Twitter</a>
+              {' '}
+for more.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
-};
-
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        date: PropTypes.string,
-        title: PropTypes.string,
-      }),
-    }),
-  }),
-};
-
-BlogPost.defaultProps = {
-  data: {
-    markdownRemark: {
-      frontmatter: {
-        date: '',
-        title: '',
-      },
-    },
-  },
 };
 
 export default BlogPost;
 
 export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($slug: String!) {
+    site {
+      siteMetadata {
+        social {
+          twitter
+        }
+      }
+    }
+    authorImage: file(relativePath: { eq: "nick.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 640) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       htmlAst
+      fields {
+        slug
+      }
+      excerpt(pruneLength: 140)
       frontmatter {
         title
         date: date(formatString: "MMMM DD YYYY")
         image {
           childImageSharp {
-            resize(width: 1500, height: 1500) {
-              src
-            }
-            sizes(maxWidth: 650) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 650) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
         imageDescription
-        published
       }
     }
   }

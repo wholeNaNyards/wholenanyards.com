@@ -1,9 +1,7 @@
 ---
-path: '/headless-raspberry-pi-setup'
 title: 'Headless Raspberry Pi Setup'
 published: true
 date: 2018-07-11
-description: 'Learn to set up a Raspberry Pi using SSH. No mouse or keyboard required!'
 image: 'raspberry-pi.jpg'
 imageDescription: 'Raspberry Pi'
 ---
