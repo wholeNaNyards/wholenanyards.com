@@ -17,7 +17,6 @@
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-offline": "^2.0.21",
     "gatsby-plugin-react-helmet": "^3.0.5",
-    "gatsby-plugin-s3": "^0.2.0",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-typography": "^2.2.5",
     "gatsby-plugin-web-font-loader": "^1.0.4",
@@ -62,8 +61,6 @@
     "serve": "gatsby serve",
     "preserve": "npm run build",
     "develop": "gatsby develop",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "gatsby build --prefix-paths",
-    "deploy": "gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id E1HB8TZFWGFSMK --paths \"/*\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

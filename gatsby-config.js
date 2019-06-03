@@ -100,14 +100,6 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
-    {
-      resolve: 'gatsby-plugin-s3',
-      options: {
-        bucketName: 'wholenanyards.com',
-        protocol: 'https',
-        hostname: 'wholenanyards.com',
-      },
-    },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
