@@ -69,28 +69,10 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-favicon',
-      options: {
-        logo: './static/favicon.png',
-        injectHTML: true,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: true,
-          yandex: false,
-          windows: true,
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Raleway:200,400'],
+          families: ['Raleway:200,400', 'Rubik:700'],
         },
       },
     },
@@ -106,4 +88,4 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
   ],
-};
+}

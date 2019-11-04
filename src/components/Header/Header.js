@@ -1,16 +1,19 @@
-import React from 'react';
-import Img from 'gatsby-image';
-import { Link, StaticQuery, graphql } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitch, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
+import React from 'react'
+import { Link, StaticQuery, graphql } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faTwitch,
+  faTwitter,
+  faGithub,
+} from '@fortawesome/free-brands-svg-icons'
 
-import styles from './Header.module.css';
+import styles from './Header.module.css'
 
 const Header = ({ data }) => (
   <nav className={styles.navBar}>
     <Link to="/">
-      <Img fixed={data.headerImage.childImageSharp.fixed} className={styles.logoImageWrapper} />
+      <div className={styles.logo}>WNY</div>
     </Link>
     <ul className={styles.iconContainer}>
       <li className={styles.icon}>
@@ -30,19 +33,12 @@ const Header = ({ data }) => (
       </li>
     </ul>
   </nav>
-);
+)
 
 export default props => (
   <StaticQuery
     query={graphql`
       {
-        headerImage: file(relativePath: { eq: "icon.png" }) {
-          childImageSharp {
-            fixed(width: 48, height: 48) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
         site {
           siteMetadata {
             title
@@ -57,4 +53,4 @@ export default props => (
     `}
     render={data => <Header data={data} {...props} />}
   />
-);
+)

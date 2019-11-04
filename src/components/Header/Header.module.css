@@ -1,6 +1,17 @@
 .logoImageWrapper {
   vertical-align: middle;
 }
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  height: 48px;
+  font-family: Rubik;
+  font-weight: 700;
+  line-height: 2.15em;
+  font-style: italic;
+  font-size: 1.5em;
+  color: #fff;
+}
 
 .navBar {
   background-color: #4e939a;
